@@ -1,19 +1,39 @@
-let n = 00010110;
+/*
+Problem: 191. Number Of 1 Bits
+*/
+let n=0000000000011101;
 
-// console.log("00010110".replace(/^0+/, ''))
-console.log(padStart(n))
+// console.log(n.toString().replace(/^0+/, ''))
+// var hammingWeight = function(n){
+//     console.log([...String(n)].map(Number))
+// }
+// console.log(hammingWeight(n));
+
+var hammingWeight = function (n) {
+    let count = 0;
+    while (n !== 0) {
+      count +=1;
+      n &= n - 1;
+    }
+    return count;
+  };
+console.log(hammingWeight(n))
+
+
+
+// console.log(padStart(n))
+
+// console.log(Math.abs(n))
 
 
 var hammingWeight = function(n) {
+    // console.log(parseInt(n).replace(/^0+/, ''))
     // let explitZero = BigInt(n);
     let count = 0;
-    const splitNum = [...String(n)].map(Number)
-    for(let i=0; i<splitNum.length; i++){
-        console.log(splitNum[i]) 
-        if(splitNum[i] == 1){
-            count += 1
-            console.log(splitNum[i])
-        }
+    // const splitNum = [...String(n)].map(Number)
+    while(n !==0){
+        count++;
+        n &= n-1
     }
     return count;
 };
